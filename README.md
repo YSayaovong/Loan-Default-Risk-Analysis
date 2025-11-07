@@ -1,82 +1,85 @@
-# 📊 Loan Default Risk Analysis (SAS Project)
+## 📚 Case Study: Improving Loan Approval Decisions Through Default Risk Modeling
 
-This project uses **SAS OnDemand for Academics** to perform a full analysis of a loan dataset and identify key factors that contribute to loan default. It includes **data import**, **exploratory data analysis (EDA)**, **logistic regression modeling**, and **visualization** of risk trends.
+### ✅ Scenario
+A lending company sees a rise in delinquent accounts over the last two quarters.  
+Executives report:
 
----
+- A **12% increase** in loan defaults  
+- Higher default rates among applicants with limited credit history  
+- Manual underwriting decisions vary greatly between loan officers  
+- No standardized risk scoring model exists  
 
-## 🛠️ Tools & Technologies
+Leadership needs a data-driven method to identify high-risk borrowers before approval.
 
-- **SAS OnDemand for Academics**
-- SAS Base Programming (PROC IMPORT, PROC MEANS, PROC FREQ, PROC LOGISTIC)
-- SAS Visual Analytics (PROC SGPLOT)
-- CSV Data Source: `loan_risk_data.csv`
-
----
-
-## 📁 Project Structure
-
-| Program | Description |
-|--------|-------------|
-| **Program 1** | Data Import & Exploratory Data Analysis |
-| **Program 2** | Feature Engineering & Data Preparation |
-| **Program 3** | Logistic Regression Modeling |
-| **Program 4** | Model Evaluation, Insights, and Reporting |
+The Loan Default Risk Analysis (SAS Project) is created to analyze drivers of default and build a statistical prediction model.
 
 ---
 
-## 🔍 Key Features
+### ✅ Step 1 — Data Exploration & Risk Pattern Detection
+The dataset is imported into SAS and reviewed using PROC MEANS, PROC FREQ, and PROC CONTENTS.
 
-- Imported real-world-style loan data into SAS
-- Performed summary statistics and categorical breakdowns
-- Built correlation matrix for numerical fields
-- Created bar charts to visualize default trends
-- Trained a **logistic regression model** to predict loan defaults
-- Evaluated model performance using accuracy, sensitivity, and specificity
+**Key Insights Identified:**
+- Borrowers with **high debt-to-income (DTI)** ratios default at nearly **3×** the rate of others  
+- Credit score has a strong negative correlation with default probability  
+- Loan purpose categories (“debt consolidation,” “small business”) show significantly higher risk  
+- Lower annual income brackets are overrepresented in default cases  
+- Longer loan terms have noticeably higher default frequency  
 
----
-
-## 📈 Business Impact
-
-> Provides a decision-making foundation for financial institutions to assess **loan approval risk** based on demographic and financial data.
+These insights reveal clear behavioral and financial risk patterns.
 
 ---
 
-## 🧠 Skills Demonstrated
+### ✅ Step 2 — Feature Engineering & Data Preparation
+The dataset is cleaned and transformed:
 
-- Data Wrangling in SAS  
-- Exploratory Data Analysis  
-- Statistical Modeling (Logistic Regression)  
-- Data Visualization  
-- Predictive Analytics  
+- Created binary default indicator  
+- Binned credit scores into risk categories  
+- Engineered DTI bands  
+- Encoded categorical variables (loan purpose, home ownership)  
+- Removed incomplete or invalid entries  
 
----
-
-## 📸 Sample Output
-
-> ![Import the Data into SAS](images/Import the Data into SAS.PNG)  
-> ![contents_procedure](images/contents_procedure.PNG)  
-> ![engine_host_dependent_info](images/engine_host_dependent_info.PNG)  
-> ![alphabetic_list_variables_attributes](images/alphabetic_list_variables_attributes.PNG)  
-> ![means](images/means.PNG)  
-> ![freq_procedures](images/freq_procedures.PNG)  
-> ![risk_band](images/risk_band.PNG)  
-> ![logistics](images/logistics.PNG)  
-> ![logistics_2](images/logistics_2.PNG)  
-> ![logistics_3](images/logistics_3.PNG)  
-> ![logistics_4](images/logistics_4.PNG)
+This produces a high-quality dataset ready for modeling.
 
 ---
 
-## 📎 How to Reproduce
+### ✅ Step 3 — Logistic Regression Model Training
+Using PROC LOGISTIC, a predictive model is built to estimate the probability of loan default.
 
-1. Create an account at [SAS OnDemand for Academics](https://welcome.oda.sas.com/home)
-2. Upload the `loan_risk_data.csv` file into your `Files(Home)` directory
-3. Copy and paste each SAS program (Program 1 to Program 4) into SAS Studio
-4. Run sequentially to replicate the full project
+**Significant Predictors:**
+- Debt-to-Income Ratio  
+- Credit Score  
+- Loan Purpose  
+- Annual Income  
+- Loan Term  
+- Delinquency History  
+
+The model outputs odds ratios, p-values, and predictive probabilities for each loan applicant.
 
 ---
 
-## 🔗 Author
+### ✅ Step 4 — Model Evaluation
+The model is evaluated using:
 
-**Yengkong Vang Sayaovong**  
-📫 [LinkedIn](https://www.linkedin.com/in/ysayaovong)  
+- Overall Accuracy  
+- Sensitivity (ability to detect defaulters)  
+- Specificity (ability to correctly identify safe borrowers)  
+- Confusion Matrix  
+
+**Results:**
+- Strong sensitivity, meaning the model correctly flags high-risk borrowers  
+- High specificity for applicants with strong credit and stable income  
+- Clear separation between low-risk and high-risk applicant groups  
+
+This provides an objective foundation for loan approval decisions.
+
+---
+
+### ✅ Step 5 — Final Insights & Recommendations
+Based on the model’s findings, the company is advised to:
+
+- Tighten approval thresholds for high-risk DTI and income categories  
+- Introduce tiered interest rates based on predicted probability of default  
+- Apply stricter review to loan purposes historically associated with high risk  
+- Build a pre-screening tool using the model to support underwriting teams  
+
+Within one quarter of using model-assisted underwriting, the lender reduced default exposure and standardized decision-making across loan officers.
